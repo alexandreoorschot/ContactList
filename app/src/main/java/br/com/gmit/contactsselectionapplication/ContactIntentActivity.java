@@ -27,7 +27,6 @@ public class ContactIntentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_intent);
-
         ListView intentListView = (ListView) findViewById(R.id.listView1);
         contactsList = new ArrayList<>();
 
@@ -46,6 +45,7 @@ public class ContactIntentActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(ContactIntentActivity.this, ContactPageActivity.class);
+                i.putExtra("Object", contactsList.get(position));
                 startActivityForResult(i, 0 );
             }
         });
